@@ -86,7 +86,7 @@ void freeStringList(StringList *list) {
   list->capacity = list->count = 0;
 }
 
-int parseFormatConfig(char* path, CommandLineFormat* fmt) {
+int parseFormatConfig(char *path, CommandLineFormat *fmt) {
   String_Builder sb = {0};
 
   if (!nob_read_entire_file(path, &sb)) {
@@ -115,7 +115,6 @@ int parseFormatConfig(char* path, CommandLineFormat* fmt) {
     fmt->leftSymbol = strdup(jimp.string);
   }
 
-
   // rightSymbol
   if (!jimp_object_member(&jimp)) {
     jimp_diagf(&jimp, "Expected rightSymbol field");
@@ -130,8 +129,6 @@ int parseFormatConfig(char* path, CommandLineFormat* fmt) {
     fmt->rightSymbol = strdup(jimp.string);
   }
 
-
-  
   // userSymbol
   if (!jimp_object_member(&jimp)) {
     jimp_diagf(&jimp, "Expected rightSymbol field");
@@ -145,7 +142,6 @@ int parseFormatConfig(char* path, CommandLineFormat* fmt) {
     }
     fmt->userSymbol = strdup(jimp.string);
   }
-
 
   // nextLine
   if (!jimp_object_member(&jimp)) {
@@ -161,12 +157,10 @@ int parseFormatConfig(char* path, CommandLineFormat* fmt) {
     fmt->nextLine = jimp.boolean;
   }
 
-
   jimp_object_end(&jimp);
 
   return 0;
 }
-
 
 int main() {
 
