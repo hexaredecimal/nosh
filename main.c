@@ -120,7 +120,13 @@ int main() {
 
     StringList strings = splitString(input);
 
+    // TODO: Use The new PIPE API to run commands
+    // If a command does not exist in /usr/bin or in the $PATH
+    // then look for a file with that name in the current directory
+    // If found, try and execute it else, try running the command with bash
+    // and then print an error if all fails
     
+    // TODO: Handle cases for input with a `|` or `>>`, '>', `<<`, '<'
 
     freeStrings(strings.items, strings.count);
   }
