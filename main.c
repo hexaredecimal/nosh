@@ -81,10 +81,12 @@ StringList splitString(char *input) {
   return list;
 }
 
-void freeStrings(char** strings, int count) {
-    for (size_t i = 0; i < count; ++i) {
-        free(strings[i]);
+void freeStringList(StringList* list) {
+    for (size_t i = 0; i < list->count; ++i) {
+        free(list->items[i]);
     }
+
+    list->capacity = list->count = 0;
 }
 
 int main() {
@@ -128,6 +130,6 @@ int main() {
     
     // TODO: Handle cases for input with a `|` or `>>`, '>', `<<`, '<'
 
-    freeStrings(strings.items, strings.count);
+    freeStringList(&strings);
   }
 }
